@@ -20,23 +20,18 @@ class Blog(db.Model):
 
 
 #Handlers------------------------------------------------------------
-@app.route('/', methods=['POST', 'GET'])
-def index():
-    
-    blogposts = Blog.query.all()
-    return render_template('blog.html', blogposts=blogposts)
-
-@app.route('/blogpost', methods=['GET', 'POST'])
-#def read(self):
-    #blogpost = Blog.query.filter_by(id=self).first()
-    #req_title = self.request.args.get('title')
-    #req_content = self.request.args.get('body')
-    #return redirect('/blog?id={0}'.format(), title=req_title, body=req_content)
+@app.route('/blog', methods=['POST', 'GET'])
 def read():
     blog_id = request.args.get('id')
     if (blog_id):
-        single = Blog.query.get('blog_id')
-    return render_template('blogpost.html', single=single)
+        blog = Blog.query.get(blog_id)
+        return render_template('blogpost.html', blog=blog)
+
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    blogposts = Blog.query.all()
+    return render_template('blog.html', blogposts=blogposts)
 
 
 @app.route('/newpost', methods=['POST', 'GET'])
@@ -55,7 +50,9 @@ def newpost():
             new_blog = Blog(new_title, new_content)
             db.session.add(new_blog)
             db.session.commit()
-            return render_template('blogpost.html', title=new_title, body=new_content)
+            link = './blog?id=' + str(new_blog.id)
+            return redirect(link)
+            #render_template('blogpost.html', title=new_title, body=new_content)
             #redirect('./blog?id={0}', id=new_blog.id, title=new_title, body=new_content)
         else:
             return render_template('newpost.html', 
