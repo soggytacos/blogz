@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Enter an username and password that you would like to use.</h2>
+
+<form action="/newpost" method="post" />
+<p>
+    <p></p><label class="inputbox">
+        Email:
+        <input type="text" name="email" value="{{ email }}" /><a class="error"> {{ emailerror }}</a>
+    </label>
+    <p></p><label class="inputbox">
+        Password:
+        <input style="margin-left: 44px" type="password" name="password" /><a class="error"> {{ passworderror }}</a>
+    </label>
+    <p></p><label class="inputbox">
+        Verify Password:
+        <input type="password" name="verify-password" /><a class="error"> {{ vpassworderror }}</a>
+    </label>
+    <p></p><input type="submit" value="Create User" />
+</p>
+</form>
+
+{% endblock %}

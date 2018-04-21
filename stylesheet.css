@@ -1,0 +1,34 @@
+body {
+    background-color: rgb(64, 105, 119);
+    text-align: center;
+    font-family: Verdana;
+    color: rgb(247, 234, 193);
+}
+
+h1 {
+    color: rgb(247, 234, 193)e;
+    text-align: center;
+    font-family: Verdana;
+    text-decoration: underline;
+}
+
+h2 {
+    color: rgb(247, 234, 193)e;
+    text-align: center;
+    font-family: Verdana;
+    text-decoration: underline;
+}
+p {
+    margin: 20px;
+    padding: 20px;
+}
+
+.last {
+    font-family: cursive;
+}
+.error{
+    color: red;
+}
+div{
+    padding-right: 20px;
+}
