@@ -6,21 +6,17 @@ body {
 }
 
 h1 {
-    color: rgb(247, 234, 193)e;
+    color: rgb(247, 234, 193);
     text-align: center;
     font-family: Verdana;
     text-decoration: underline;
 }
 
 h2 {
-    color: rgb(247, 234, 193)e;
+    color: rgb(247, 234, 193);
     text-align: center;
     font-family: Verdana;
     text-decoration: underline;
-}
-p {
-    margin: 20px;
-    padding: 20px;
 }
 
 .last {
@@ -31,4 +27,9 @@ p {
 }
 div{
     padding-right: 20px;
+}
+label{
+    font-family: cursive;
+    color: rgb(247, 234, 193);
+    text-align: center;
 }
