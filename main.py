@@ -9,6 +9,7 @@ endpoints_without_login = ['login', 'signup']
 #@app.before_request
 def require_login():
     if not ('user' in session or request.endpoint in endpoints_without_login):
+        flash("Please login.")
         return redirect("/login")
 
 @app.route("/logout", methods=['POST', 'GET'])
@@ -104,14 +105,19 @@ def index():
 
 @app.route('/singleUser', methods=['GET', 'POST'])
 def MyBlogs():
-    
-    owner = User.query.filter_by(email=session['user']).first()
-    blogposts = Blog.query.filter_by(owner=owner).all()
-    return render_template('singleUser.html', blogposts=blogposts)
+    if not ('user' in session or request.endpoint in endpoints_without_login):
+        flash("Please login.")
+        return redirect("/login")
+    else:
+        owner = User.query.filter_by(email=session['user']).first()
+        blogposts = Blog.query.filter_by(owner=owner).all()
+        return render_template('singleUser.html', blogposts=blogposts)
 
 @app.route('/newpost', methods=['POST', 'GET'])
 def newpost():
-
+    if not ('user' in session or request.endpoint in endpoints_without_login):
+        flash("Please login.")
+        return redirect("/login")
     if request.method == 'POST':
         new_title = request.form['title']
         new_content = request.form['content']
