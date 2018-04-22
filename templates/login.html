@@ -2,21 +2,36 @@
 <h2>Login to Colman's Blog!</h2>
 
 <form action="/login" method="post" />
-<p>
-    <label class="inputbox">
-        email:
-        <input style="margin-left: 42px" type="text" name="email" value="{{ email }}" />
-        <a class="error"> {{ emailerror }}</a>
-    </label>
-    <p></p>
-    <label class="inputbox">
-        Password:
-        <input style="margin-left: 44px" type="password" name="password" />
-        <a class="error"> {{ passworderror }}</a>
-    </label>
-    <p></p>
-    <input type="submit" value="Login" />
-</p>
+<table>
+    <tr>
+        <td>
+            <label class="inputbox">Email:
+        </td>
+        <td>
+            <input type="text" name="email" value="{{ email }}" />
+        </td>
+        <td>
+            <a class="error"> {{ emailerror }}</a>
+        </td>
+        </label>
+    </tr>
+    <tr>
+        <td>
+            <label class="inputbox">Password:
+        </td>
+        <td>
+            <input type="password" name="password" />
+        </td>
+        <td>
+            <a class="error"> {{ passworderror }}</a>
+        </td>
+        </label>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value="Login" />
+        </td>
+    </tr>
 </form>
 
 {% endblock %}

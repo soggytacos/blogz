@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{title}}</title>
+        <title>Blogz</title>
         <!--<link rel="stylesheet" href="C:\Users\cswisher\LC101\blogz\stylesheet.css" type="text/css" >-->
         <link rel="stylesheet" href="stylesheet.css" type="text/css" >
         <!--<style type="text/css">
             @import url("stylesheet.css");
         </style>-->
-
     </head>
     <body>
         <div>
@@ -17,7 +16,18 @@
             <a href='/singleUser'>My Blogs</a>
             <a href='/newpost'>New Post</a>
             <a href='/logout'>Log Out</a>
+            <a>Signed in as: {{ session['user'] }}</a>
         </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="error">
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
 
 {% block content %}
 {% endblock %}
