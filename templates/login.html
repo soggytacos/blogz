@@ -4,34 +4,34 @@
 <form action="/login" method="post" />
 <table>
     <tr>
-        <td>
-            <label class="inputbox">Email:
-        </td>
-        <td>
-            <input type="text" name="email" value="{{ email }}" />
-        </td>
-        <td>
-            <a class="error"> {{ emailerror }}</a>
-        </td>
+        <label class="inputbox">
+            <td>
+                Email:
+            </td>
+            <td>
+                <input type="text" name="email" value="{{ email }}" />
+            </td>
+        </label>
+    </tr>
+    <tr>
+        <label class="inputbox">
+            <td>
+                Password:
+            </td>
+            <td>
+                <input type="password" name="password" />
+            </td>
         </label>
     </tr>
     <tr>
         <td>
-            <label class="inputbox">Password:
+
         </td>
-        <td>
-            <input type="password" name="password" />
-        </td>
-        <td>
-            <a class="error"> {{ passworderror }}</a>
-        </td>
-        </label>
-    </tr>
-    <tr>
         <td>
             <input type="submit" value="Login" />
         </td>
     </tr>
+</table>
 </form>
 
 {% endblock %}

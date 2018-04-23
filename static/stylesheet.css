@@ -1,35 +1,31 @@
-body {
-    background-color: rgb(64, 105, 119);
-    text-align: center;
-    font-family: Verdana;
-    color: rgb(247, 234, 193);
-}
-
 h1 {
-    color: rgb(247, 234, 193);
-    text-align: center;
+    color: rgb(193, 247, 197);
+    text-align: left;
     font-family: Verdana;
     text-decoration: underline;
 }
 
 h2 {
-    color: rgb(247, 234, 193);
+    color: rgb(119, 168, 100);
     text-align: center;
     font-family: Verdana;
     text-decoration: underline;
 }
 
-.last {
-    font-family: cursive;
-}
 .error{
     color: red;
 }
-div{
-    padding-right: 20px;
+.nav{
+    padding-right: 40px;
+    display: inline-block;
+    color: blue;
 }
-label{
-    font-family: cursive;
+
+table th td {
+    table-layout: auto;
     color: rgb(247, 234, 193);
-    text-align: center;
+    text-align: left;
+    font-family: Verdana;
+    text-decoration: underline;
+    border: 1px solid black;
 }

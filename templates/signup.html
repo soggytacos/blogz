@@ -4,21 +4,46 @@
 <h2>Enter an username and password that you would like to use.</h2>
 
 <form action='/signup' method="post" />
-<p>
-    <p></p><label class="inputbox">
-        Email:
-        <input type="text" name="email" value="{{ email }}" />
-    </label>
-    <p></p><label class="inputbox">
-        Password:
-        <input type="password" name="password" />
-    </label>
-    <p></p><label class="inputbox">
-        Verify Password:
-        <input type="password" name="verify" />
-    </label>
-    <p></p><input type="submit" value="Create User" />
-</p>
+<table>
+    <tr>
+        <label>
+            <td>
+                Email:
+            </td>
+            <td>
+                <input type="text" name="email" value="{{ email }}" />
+            </td>
+        </label>
+    </tr>
+    <tr>
+        <label class="inputbox">
+            <td>
+                Password:
+            </td>
+            <td>
+                <input type="password" name="password" />
+            </td>
+        </label>
+    </tr>
+    <tr>
+        <label class="inputbox">            
+            <td>
+                Verify Password:
+            </td>
+            <td>
+                <input type="password" name="verify" />
+            </td>
+        </label>
+    </tr>
+    <tr>
+        <td>
+            
+         </td>
+        <td>
+            <input type="submit" value="Create User" />
+        </td>
+    </tr>
+</table>
 </form>
 
 {% endblock %}
