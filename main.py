@@ -1,6 +1,7 @@
 from flask import request, redirect, render_template, session, flash
 from models import Blog, User
 from app import app, db
+from hashutils import make_pw_hash, check_pw_hash
 
 endpoints_without_login = ['login', 'signup']
 
@@ -15,7 +16,8 @@ def require_login():
 @app.route("/logout", methods=['POST', 'GET'])
 def logout():
     del session['user']
-    return redirect("/login")
+    flash("You have been logged out.")
+    return redirect("/")
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -30,7 +32,7 @@ def login():
             return redirect("/login")
         if users.count() == 1:
             user = users.first()
-            if password == user.password:
+            if check_pw_hash(password, user.pw_hash):
                 session['user'] = user.email
                 flash('welcome back, '+user.email)
                 return redirect("/newpost")
@@ -62,7 +64,7 @@ def signup():
         db.session.commit()
         session['user'] = user.email
         flash("Welcome to the blog," + email + "!")
-        return redirect("/")
+        return redirect("/newpost")
     
     return render_template('signup.html')
 
@@ -102,6 +104,18 @@ def read():
 def index():
     blogposts = Blog.query.all()
     return render_template('blog.html', blogposts=blogposts)
+
+@app.route('/authors', methods=['GET', 'POST'])
+def authors():
+    if 'id' in request.args: 
+        author_id = request.args.get('id')
+        author = User.query.get(author_id)
+        blogs = Blog.query.filter_by(owner_id=author_id).all()
+        return render_template('singleauthor.html', blogs=blogs)
+    else:
+        authors = User.query.all()
+        return render_template('authors.html', authors=authors)
+
 
 @app.route('/singleUser', methods=['GET', 'POST'])
 def MyBlogs():

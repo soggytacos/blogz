@@ -3,6 +3,7 @@ h1 {
     text-align: left;
     font-family: Verdana;
     text-decoration: underline;
+    font-size: 90px;
 }
 
 h2 {
@@ -15,7 +16,7 @@ h2 {
 .error{
     color: red;
 }
-.nav{
+.nav ul li{
     padding-right: 40px;
     display: inline-block;
     color: blue;
